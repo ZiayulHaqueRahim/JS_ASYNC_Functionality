@@ -6,6 +6,51 @@
     <title>JS ASYNC Functionality</title>
 </head>
 <body>
+    <div>
+        <h2>...ASYNC JS FUNCTIONALITY.....</h2>
+        <button id="stop">Stop changing heading Text</button>
+    </div>
+    <div>
+        <h1> Will come</h1>
+        <button id="start-action">Start Action</button>
+        <button id="end-action">Stop Action</button>
+    </div>
+  <script>
+
+// setTimeout & clearTimeout:::
+      const changeText = function(){
+        document.querySelector('h2').innerHTML = "JAVASCRIPT ASYNC FUNCTIONALITY";
+        console.log('text changed');
+        
+      };
+
+      const changeMe = setTimeout(changeText, 2000);
+        // clearTimeout(changeMe);
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe);
+        console.log('changing text paused');
+    });
+
+// setInterval & clearInterval :::
+
+
+const changeAction = ()=>{
+    console.log(Date.now());
     
+}
+document.querySelector('#start-action').addEventListener('click', ()=>{
+     intervalId = setInterval(changeAction, 3000);
+     console.log('started action');
+     
+});
+document.querySelector('#end-action').addEventListener('click',()=>{
+    clearInterval(intervalId);
+    console.log('paused action');
+    
+})
+
+
+  </script>
 </body>
 </html>
